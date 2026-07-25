@@ -15,8 +15,3 @@ private:
 };
 
 #endif 
-
-
-git add .
-  git commit -m "Phase 2: add Auth session manager and gatekeeper checks on Component updates"
-  git push origin main

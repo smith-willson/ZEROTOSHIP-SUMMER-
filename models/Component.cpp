@@ -1,4 +1,5 @@
 #include "Component.h"
+#include "../services/Auth.h"
 #include <iostream>
 
 Component::Component(int id, const std::string& name, const std::string& owner, const std::string& status)
@@ -27,4 +28,23 @@ void Component::print() const {
                << ", owner: " << owner
                << ", status: " << status
                << " }" << std::endl;
+}
+
+
+bool Component::setStatus(const std::string& newStatus) {
+    if (!Auth::isLoggedIn()) {
+        std::cout << "ACCESS DENIED: no active session. Cannot modify status." << std::endl;
+        return false;
+    }
+    status = newStatus;
+    return true;
+}
+
+bool Component::setOwner(const std::string& newOwner) {
+    if (!Auth::isLoggedIn()) {
+        std::cout << "ACCESS DENIED: no active session. Cannot modify owner." << std::endl;
+        return false;
+    }
+    owner = newOwner;
+    return true;
 }
