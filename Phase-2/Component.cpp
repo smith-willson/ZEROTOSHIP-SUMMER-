@@ -1,5 +1,5 @@
 #include "Component.h"
-#include "../services/Auth.h"
+#include "services/Auth.h"
 #include <iostream>
 
 Component::Component(int id, const std::string& name, const std::string& owner, const std::string& status)
