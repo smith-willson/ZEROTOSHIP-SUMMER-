@@ -13,7 +13,7 @@ The implementation follows an object-oriented design where each module has a sin
 
 ## Project Structure
 
-```
+```text
 Phase-3
 │
 ├── Component.h
