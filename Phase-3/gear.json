@@ -1,0 +1,20 @@
+[
+    {
+        "category": "Microcontroller",
+        "id": 1,
+        "name": "Arduino Uno",
+        "status": "Available"
+    },
+    {
+        "category": "Computer",
+        "id": 2,
+        "name": "Raspberry Pi 4",
+        "status": "Available"
+    },
+    {
+        "category": "Measurement",
+        "id": 3,
+        "name": "Oscilloscope",
+        "status": "Available"
+    }
+]
