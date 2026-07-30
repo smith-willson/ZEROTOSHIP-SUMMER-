@@ -12,12 +12,7 @@ bool Storage::saveToFile(const std::vector<Component>& components,
 
     for (const auto& component : components)
     {
-        data.push_back({
-            {"id", component.getId()},
-            {"name", component.getName()},
-            {"category", component.getCategory()},
-            {"status", component.getStatus()}
-        });
+        data.push_back(component.toJson());
     }
 
     std::ofstream file(filename);
@@ -59,15 +54,10 @@ bool Storage::loadFromFile(std::vector<Component>& components,
 
     for (const auto& item : data)
     {
-        Component component(
-            item["id"],
-            item["name"],
-            item["category"],
-            item["status"]
-        );
-
-        components.push_back(component);
+        components.push_back(Component::fromJson(item));
     }
+
+    
 
     file.close();
 

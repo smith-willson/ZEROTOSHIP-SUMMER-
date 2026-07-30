@@ -1,4 +1,5 @@
 #include "Component.h"
+using json = nlohmann::json;
 
 Component::Component()
 {
@@ -54,4 +55,26 @@ void Component::setCategory(const std::string& category)
 void Component::setStatus(const std::string& status)
 {
     this->status = status;
+}
+
+
+json Component::toJson() const
+{
+    return {
+        {"id", id},
+        {"name", name},
+        {"category", category},
+        {"status", status}
+    };
+}
+
+
+Component Component::fromJson(const json& j)
+{
+    return Component(
+        j.at("id").get<int>(),
+        j.at("name").get<std::string>(),
+        j.at("category").get<std::string>(),
+        j.at("status").get<std::string>()
+    );
 }
